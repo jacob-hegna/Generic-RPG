@@ -14,7 +14,8 @@ public:
 		_init(x, y);
 	}
 	~Actor(void) {
-
+		SDL_DestroyTexture(_tex);
+		delete _tex;
 	}
 
 	void render(Window* window);

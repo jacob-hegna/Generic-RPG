@@ -7,11 +7,12 @@
 
 namespace Gameplay {
 	extern Hero *hero;
-	extern Zombie *zombie[];
+	extern Zombie *zombie;
 
 	void init(Engine *engine);
 	void logic(Engine *engine);
 	void render(Engine *engine);
+	void free(Engine *engine);
 };
 
 #endif

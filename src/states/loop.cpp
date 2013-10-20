@@ -9,7 +9,7 @@ int loop(Window *window) {
 		engine[i] = new Engine();
 	}
 
-	engine[GAMEPLAY]->init(window, Gameplay::init, Gameplay::logic, Gameplay::render, nullptr, "Gameloop");
+	engine[GAMEPLAY]->init(window, Gameplay::init, Gameplay::logic, Gameplay::render, Gameplay::free, "Gameloop");
 
 	while(!window->shouldClose()) {		
 		engine[gamestates]->exec();
@@ -21,5 +21,6 @@ int loop(Window *window) {
 	}
 
 	delete engine;
+
 	return 0;
 }
