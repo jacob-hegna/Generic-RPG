@@ -29,18 +29,6 @@ public:
 
 	void exec(void);
 
-	template <class T>
-	void setData(T* t) {
-		if(t != nullptr) {
-			_data = t;
-		}
-	}
-
-	template <class T>
-	T* getData() {
-		return static_cast<T*>(_data);
-	}
-
 	Window* getWindow(void) {
 		return _window;
 	}
@@ -71,15 +59,7 @@ private:
 	* void free(Engine*) {
 	*     // This frees any data allocated in void init(Engine*)
 	* }
-	*/	
-
-	// Misc data storage
-	// This can store a pointer to a stuct
-	// where you can store data to use
-	void *_data;
-
-	// Used basically only for the timer
-	bool _switch;
+	*/
 };
 
 #endif

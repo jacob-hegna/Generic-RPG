@@ -16,6 +16,15 @@
     <Filter Include="src\states\gameplay">
       <UniqueIdentifier>{9ec52c73-5b1d-4e19-b00d-8084330a48fe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\actor">
+      <UniqueIdentifier>{951c2706-a334-486f-9644-097ab962de20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\actor\hero">
+      <UniqueIdentifier>{187f11db-bce5-4092-a5d8-9fa88e5a08cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\util">
+      <UniqueIdentifier>{fedee241-6b78-4366-967d-9c0a3a0e97ad}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\main.cpp">
@@ -33,6 +42,15 @@
     <ClCompile Include="..\..\src\states\gameplay\gameplay.cpp">
       <Filter>src\states\gameplay</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\actor\actor.cpp">
+      <Filter>src\actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\actor\hero\hero.cpp">
+      <Filter>src\actor\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\util\applySurface.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\window\window.h">
@@ -46,6 +64,15 @@
     </ClInclude>
     <ClInclude Include="..\..\src\states\gameplay\gameplay.h">
       <Filter>src\states\gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\actor\actor.h">
+      <Filter>src\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\actor\hero\hero.h">
+      <Filter>src\actor\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\util\applySurface.h">
+      <Filter>src\util</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

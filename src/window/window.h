@@ -10,6 +10,7 @@
 #include <rapidxml/rapidxml_utils.hpp>
 
 #include <SDL.h>
+#include <SDL_image.h>
 
 class Window
 {
@@ -26,11 +27,15 @@ public:
 		if(!SDL_Init(SDL_INIT_EVERYTHING)) {
 			return -1;
 		}
+		if(!IMG_Init(IMG_INIT_PNG)) {
+			return -2;
+		}
 		return 0;
 	}
 
 	static void deinitSDL(void) {
 		SDL_Quit();
+		IMG_Quit();
 	}
 
 	int init(void);
@@ -39,11 +44,16 @@ public:
 		SDL_PollEvent(_event);
 	}
 
+	SDL_Texture* loadTex(std::string path);
+	void applyTex(SDL_Texture* tex, int x, int y);
+
 	void render(void) {
-		SDL_UpdateWindowSurface(_window);
+		SDL_RenderPresent(_renderer);
 	}
 
-	void clear(void);
+	void clear(void) {
+		SDL_RenderClear(_renderer);
+	}
 
 	SDL_Event* getEvent(void) {
 		return _event;
@@ -72,15 +82,9 @@ public:
 	int getW(void) {
 		return _w;
 	}
-	void setW(int w) {
-		_w = w;
-	}
 
 	int getH(void) {
 		return _h;
-	}
-	void setH(int h) {
-		_h = h;
 	}
 
 	void incFrames(void) {
@@ -88,9 +92,9 @@ public:
 	}
 
 private:
-	SDL_Window  *_window;
-	SDL_Event   *_event;
-	SDL_Surface *_clear;
+	SDL_Window   *_window;
+	SDL_Event    *_event;
+	SDL_Renderer *_renderer;
 
 	bool _close;
 

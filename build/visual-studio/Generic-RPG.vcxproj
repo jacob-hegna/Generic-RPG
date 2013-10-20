@@ -11,16 +11,22 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\actor\actor.cpp" />
+    <ClCompile Include="..\..\src\actor\hero\hero.cpp" />
     <ClCompile Include="..\..\src\engine\engine.cpp" />
     <ClCompile Include="..\..\src\main.cpp" />
     <ClCompile Include="..\..\src\states\gameplay\gameplay.cpp" />
     <ClCompile Include="..\..\src\states\loop.cpp" />
+    <ClCompile Include="..\..\src\util\applySurface.cpp" />
     <ClCompile Include="..\..\src\window\window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\actor\actor.h" />
+    <ClInclude Include="..\..\src\actor\hero\hero.h" />
     <ClInclude Include="..\..\src\engine\engine.h" />
     <ClInclude Include="..\..\src\states\gameplay\gameplay.h" />
     <ClInclude Include="..\..\src\states\loop.h" />
+    <ClInclude Include="..\..\src\util\applySurface.h" />
     <ClInclude Include="..\..\src\window\window.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -63,7 +69,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
