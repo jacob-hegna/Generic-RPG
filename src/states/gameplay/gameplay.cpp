@@ -4,6 +4,7 @@ Hero *Gameplay::hero = nullptr;
 Zombie *Gameplay::zombie;
 
 Font Gameplay::arial;
+Music Gameplay::music;
 
 void Gameplay::init(Engine *engine) {
 	hero = new Hero(0,0);
@@ -15,6 +16,9 @@ void Gameplay::init(Engine *engine) {
 	arial.setRen(engine->getWindow());
 	arial.loadTTF("media/images/etc/arial.ttf", 24);
 	arial.setColor(0, 0, 0);
+
+	music.init("media/audio/gameMusic.ogg");
+	music.play();
 }
 
 void Gameplay::logic(Engine *engine) {
@@ -30,6 +34,7 @@ void Gameplay::render(Engine *engine) {
 }
 
 void Gameplay::free(Engine *engine) {
+	music.free();
 	delete hero;
 	delete zombie;
 }

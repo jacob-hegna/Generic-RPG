@@ -2,6 +2,8 @@
 #define _HERO_H_
 
 #include "../actor.h"
+#include "../../media/mixer/sound.h"
+#include "../../util/buffunc.h"
 
 class Hero : public Actor {
 public:
@@ -26,6 +28,8 @@ private:
 	void _free(void);
 
 	Texture _multiTex[8];
+	Sound   _slashSound;
+	bool    _playBuf;
 
 	enum {
 		NFRONT, NBACK, NLEFT, NRIGHT,

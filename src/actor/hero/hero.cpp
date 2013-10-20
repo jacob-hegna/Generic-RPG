@@ -2,6 +2,11 @@
 
 void Hero::init(Window *window) {
 	_speed = 2.f;
+
+	_mhealth = 500.f;
+	_health  = _mhealth;
+	_damage  = 5.f;
+
 	_pos   = NFRONT;
 
 	for(int i = 0; i < 8; ++i) {
@@ -19,6 +24,9 @@ void Hero::init(Window *window) {
 
 	_w = _multiTex[NFRONT].getW();
 	_h = _multiTex[NFRONT].getH();
+
+	_slashSound.init("media/audio/slash.wav");
+	_playBuf = false;
 }
 
 void Hero::move(void) {
@@ -42,6 +50,10 @@ void Hero::move(void) {
 		_pos = ifSlash() ? SRIGHT : NRIGHT;
 	}
 
+	bufFunc(keystate[SDL_GetScancodeFromKey(SDLK_SPACE)], &_playBuf,
+			[] (Sound *sound, void *p) {sound->play();},
+			&_slashSound, nullptr);
+
 	if(keystate[SDL_GetScancodeFromKey(SDLK_SPACE)]) {
 		switch(_pos) {
 			case NFRONT: _pos = SFRONT; break;
@@ -60,6 +72,7 @@ void Hero::move(void) {
 }
 
 void Hero::_free(void) {
+	_slashSound.free();
 	for(int i = 0; i < 8; ++i) {
 		_multiTex[i].free();
 	}

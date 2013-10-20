@@ -28,6 +28,12 @@
     <Filter Include="src\actor\zombie">
       <UniqueIdentifier>{5f47cea0-2fd7-4e07-9ab2-6be29a347eb6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\media">
+      <UniqueIdentifier>{e89cc5d7-4943-41f4-803d-797314e50f5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\media\mixer">
+      <UniqueIdentifier>{66ca47e5-0c4b-4380-9214-108aad2c0390}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\main.cpp">
@@ -57,11 +63,11 @@
     <ClCompile Include="..\..\src\util\timer.cpp">
       <Filter>src\util</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\util\texture.cpp">
-      <Filter>src\util</Filter>
+    <ClCompile Include="..\..\src\media\font.cpp">
+      <Filter>src\media</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\util\font.cpp">
-      <Filter>src\util</Filter>
+    <ClCompile Include="..\..\src\media\texture.cpp">
+      <Filter>src\media</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -89,10 +95,25 @@
     <ClInclude Include="..\..\src\util\timer.h">
       <Filter>src\util</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\util\texture.h">
+    <ClInclude Include="..\..\src\util\sstr.h">
       <Filter>src\util</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\util\font.h">
+    <ClInclude Include="..\..\src\media\font.h">
+      <Filter>src\media</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\media\texture.h">
+      <Filter>src\media</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\media\mixer\mixer.h">
+      <Filter>src\media\mixer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\media\mixer\music.h">
+      <Filter>src\media\mixer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\media\mixer\sound.h">
+      <Filter>src\media\mixer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\util\buffunc.h">
       <Filter>src\util</Filter>
     </ClInclude>
   </ItemGroup>

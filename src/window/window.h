@@ -13,6 +13,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
+#include <SDL_mixer.h>
 
 class Window
 {
@@ -31,10 +32,12 @@ public:
 		}
 		IMG_Init(IMG_INIT_PNG);
 		TTF_Init();
+		Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
 		return 0;
 	}
 
 	static void deinitSDL(void) {
+		Mix_Quit();
 		TTF_Quit();
 		IMG_Quit();
 		SDL_Quit();
