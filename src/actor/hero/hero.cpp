@@ -1,19 +1,24 @@
 #include "hero.h"
 
 void Hero::init(Window *window) {
-	_w     = 100;
-	_h     = 126;
 	_speed = 0.1f;
 	_pos   = NFRONT;
 
-	_multiTex[NFRONT] = window->loadTex("media/images/actors/hero/mainFront.png");
-	_multiTex[NBACK]  = window->loadTex("media/images/actors/hero/mainBack.png");
-	_multiTex[NLEFT]  = window->loadTex("media/images/actors/hero/mainLeft.png");
-	_multiTex[NRIGHT] = window->loadTex("media/images/actors/hero/mainRight.png");
-	_multiTex[SFRONT] = window->loadTex("media/images/actors/hero/slashFront.png");
-	_multiTex[SBACK]  = window->loadTex("media/images/actors/hero/slashBack.png");
-	_multiTex[SLEFT]  = window->loadTex("media/images/actors/hero/slashLeft.png");
-	_multiTex[SRIGHT] = window->loadTex("media/images/actors/hero/slashRight.png");
+	for(int i = 0; i < 8; ++i) {
+		_multiTex[i].init(window->getRen());
+	}
+
+	_multiTex[NFRONT].loadIMG("media/images/actors/hero/mainFront.png");
+	_multiTex[NBACK].loadIMG("media/images/actors/hero/mainBack.png");
+	_multiTex[NLEFT].loadIMG("media/images/actors/hero/mainLeft.png");
+	_multiTex[NRIGHT].loadIMG("media/images/actors/hero/mainRight.png");
+	_multiTex[SFRONT].loadIMG("media/images/actors/hero/slashFront.png");
+	_multiTex[SBACK].loadIMG("media/images/actors/hero/slashBack.png");
+	_multiTex[SLEFT].loadIMG("media/images/actors/hero/slashLeft.png");
+	_multiTex[SRIGHT].loadIMG("media/images/actors/hero/slashRight.png");
+
+	_w = _multiTex[NFRONT].getW();
+	_h = _multiTex[NFRONT].getH();
 }
 
 void Hero::move(void) {
@@ -51,5 +56,11 @@ void Hero::move(void) {
 			case SLEFT:  _pos = NLEFT;  break;
 			case SRIGHT: _pos = NRIGHT; break;
 		}
+	}
+}
+
+void Hero::_free(void) {
+	for(int i = 0; i < 8; ++i) {
+		_multiTex[i].free();
 	}
 }

@@ -18,7 +18,9 @@
     <ClCompile Include="..\..\src\main.cpp" />
     <ClCompile Include="..\..\src\states\gameplay\gameplay.cpp" />
     <ClCompile Include="..\..\src\states\loop.cpp" />
-    <ClCompile Include="..\..\src\util\applySurface.cpp" />
+    <ClCompile Include="..\..\src\util\font.cpp" />
+    <ClCompile Include="..\..\src\util\texture.cpp" />
+    <ClCompile Include="..\..\src\util\timer.cpp" />
     <ClCompile Include="..\..\src\window\window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -28,8 +30,13 @@
     <ClInclude Include="..\..\src\engine\engine.h" />
     <ClInclude Include="..\..\src\states\gameplay\gameplay.h" />
     <ClInclude Include="..\..\src\states\loop.h" />
-    <ClInclude Include="..\..\src\util\applySurface.h" />
+    <ClInclude Include="..\..\src\util\font.h" />
+    <ClInclude Include="..\..\src\util\texture.h" />
+    <ClInclude Include="..\..\src\util\timer.h" />
     <ClInclude Include="..\..\src\window\window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\media\resources.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{CD4A2E05-8D32-42B9-A4BA-DC60B397CE4D}</ProjectGuid>
@@ -71,7 +78,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

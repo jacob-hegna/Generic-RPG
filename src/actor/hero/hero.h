@@ -12,7 +12,7 @@ public:
 
 	}
 	~Hero(void) {
-
+		_free();
 	}
 
 	void init(Window *window);
@@ -23,7 +23,9 @@ public:
 	}
 
 private:
-	SDL_Texture *_multiTex[8];
+	void _free(void);
+
+	Texture _multiTex[8];
 
 	enum {
 		NFRONT, NBACK, NLEFT, NRIGHT,

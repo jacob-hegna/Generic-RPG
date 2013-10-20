@@ -84,36 +84,7 @@ int Window::init(void)
 	_renderer = SDL_CreateRenderer( _window, -1, SDL_RENDERER_ACCELERATED );
 	SDL_SetRenderDrawColor(_renderer, _clearColor.r, _clearColor.g, _clearColor.b, 0xFF);
 
+	SDL_SetWindowIcon(_window, IMG_Load("media/images/etc/icon.bmp"));
+
 	return 0;
-}
-
-SDL_Texture* Window::loadTex(std::string path) {
-	SDL_Texture* newTexture = nullptr;
-
-	SDL_Surface* loadedSurface = IMG_Load( path.c_str() );
-	if( loadedSurface == nullptr )
-	{
-		printf( "Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError() );
-	}
-	else
-	{
-		SDL_SetColorKey( loadedSurface, SDL_TRUE, SDL_MapRGB( loadedSurface->format, 0, 0xFF, 0xFF ) );
-        newTexture = SDL_CreateTextureFromSurface( _renderer, loadedSurface );
-		if( newTexture == nullptr )
-		{
-			printf( "Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError() );
-		}
-
-		SDL_FreeSurface( loadedSurface );
-	}
-
-	return newTexture;
-}
-
-void Window::applyTex(SDL_Texture *tex, int x, int y) {
-	SDL_Rect temp;
-	temp.x = x;
-	temp.y = y;
-	SDL_QueryTexture(tex, NULL, NULL, &temp.w, &temp.h);
-	SDL_RenderCopy(_renderer, tex, NULL, &temp);
 }

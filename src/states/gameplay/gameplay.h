@@ -1,9 +1,13 @@
 #ifndef _GAMEPLAY_H_
 #define _GAMEPLAY_H_
 
+#include <SDL.h>
+#include <SDL_ttf.h>
+
 #include "../../engine/engine.h"
 #include "../../actor/hero/hero.h"
 #include "../../actor/zombie/zombie.h"
+#include "../../util/font.h"
 
 namespace Gameplay {
 	extern Hero *hero;

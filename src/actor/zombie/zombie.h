@@ -16,13 +16,14 @@ public:
 
 	}
 	~Zombie(void) {
-
+		_free();
 	}
 
 	void init(Window *window);
 	void move(Hero *hero);
 
 private:
+	void _free();
 };
 
 #endif

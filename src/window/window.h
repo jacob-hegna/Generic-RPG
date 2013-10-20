@@ -11,6 +11,7 @@
 
 #include <SDL.h>
 #include <SDL_image.h>
+#include <SDL_ttf.h>
 
 class Window
 {
@@ -30,12 +31,16 @@ public:
 		if(!IMG_Init(IMG_INIT_PNG)) {
 			return -2;
 		}
+		if(!TTF_Init()) {
+			return -3;
+		}
 		return 0;
 	}
 
 	static void deinitSDL(void) {
-		SDL_Quit();
+		TTF_Quit();
 		IMG_Quit();
+		SDL_Quit();
 	}
 
 	int init(void);
@@ -43,9 +48,6 @@ public:
 	void update(void) {
 		SDL_PollEvent(_event);
 	}
-
-	SDL_Texture* loadTex(std::string path);
-	void applyTex(SDL_Texture* tex, int x, int y);
 
 	void render(void) {
 		SDL_RenderPresent(_renderer);
@@ -61,6 +63,10 @@ public:
 
 	SDL_Window* getWindow(void) {
 		return _window;
+	}
+
+	SDL_Renderer* getRen(void) {
+		return _renderer;
 	}
 
 	bool shouldClose(void) {
@@ -89,6 +95,9 @@ public:
 
 	void incFrames(void) {
 		++_frames;
+	}
+	int getFrames(void) {
+		return _frames;
 	}
 
 private:

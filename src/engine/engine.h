@@ -4,6 +4,7 @@
 #include <string>
 
 #include "../window/window.h"
+#include "../util/timer.h"
 
 // This class controls any main section of game function
 // Things like the game loop, the start menu, the pause menu,
@@ -33,6 +34,18 @@ public:
 		return _window;
 	}
 
+	void pause(void) {
+		_timer.pause();
+	}
+
+	int getTime(void) {
+		return _timer.get_ticks();
+	}
+
+	float getFps(void) {
+		return _window->getFrames()/_timer.get_ticks();
+	}
+
 private:
 	Window *_window;
 
@@ -60,6 +73,9 @@ private:
 	*     // This frees any data allocated in void init(Engine*)
 	* }
 	*/
+
+	Timer _timer;
+
 };
 
 #endif

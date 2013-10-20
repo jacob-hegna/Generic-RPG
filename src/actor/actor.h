@@ -4,6 +4,7 @@
 #include <SDL_image.h>
 
 #include "../window/window.h"
+#include "../util/texture.h"
 
 class Actor {
 public:
@@ -14,11 +15,14 @@ public:
 		_init(x, y);
 	}
 	~Actor(void) {
-		SDL_DestroyTexture(_tex);
-		delete _tex;
+		
 	}
 
-	void render(Window* window);
+	void setWin(Window *window) {
+		_tex.init(window->getRen());
+	}
+
+	void render(void);
 
 	float getX(void) {return _x;}
 	float getY(void) {return _y;}
@@ -29,7 +33,7 @@ protected:
 	float _w, _h;
 	float _speed;
 
-	SDL_Texture *_tex;
+	Texture _tex;
 
 	void _init(float x = 0, float y = 0);
 };

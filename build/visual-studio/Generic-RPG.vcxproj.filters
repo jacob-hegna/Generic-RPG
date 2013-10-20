@@ -51,11 +51,17 @@
     <ClCompile Include="..\..\src\actor\hero\hero.cpp">
       <Filter>src\actor\hero</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\util\applySurface.cpp">
-      <Filter>src\util</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\actor\zombie\zombie.cpp">
       <Filter>src\actor\zombie</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\util\timer.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\util\texture.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\util\font.cpp">
+      <Filter>src\util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -77,11 +83,20 @@
     <ClInclude Include="..\..\src\actor\hero\hero.h">
       <Filter>src\actor\hero</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\util\applySurface.h">
-      <Filter>src\util</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\actor\zombie\zombie.h">
       <Filter>src\actor\zombie</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\util\timer.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\util\texture.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\util\font.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\media\resources.rc" />
   </ItemGroup>
 </Project>
