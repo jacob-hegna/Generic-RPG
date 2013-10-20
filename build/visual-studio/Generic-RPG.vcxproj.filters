@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{33935048-dce7-4749-905c-5dcc7e809afa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\window">
+      <UniqueIdentifier>{15218e9e-fc51-40af-ba91-1fbd297418b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine">
+      <UniqueIdentifier>{822d79e8-6493-4992-8e0b-93dd8de8481d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\states">
+      <UniqueIdentifier>{210d7634-f264-43d3-97e2-3dec623a586b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\states\gameplay">
+      <UniqueIdentifier>{9ec52c73-5b1d-4e19-b00d-8084330a48fe}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\window\window.cpp">
+      <Filter>src\window</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\engine\engine.cpp">
+      <Filter>src\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\states\loop.cpp">
+      <Filter>src\states</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\states\gameplay\gameplay.cpp">
+      <Filter>src\states\gameplay</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\window\window.h">
+      <Filter>src\window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\engine\engine.h">
+      <Filter>src\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\states\loop.h">
+      <Filter>src\states</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\states\gameplay\gameplay.h">
+      <Filter>src\states\gameplay</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
