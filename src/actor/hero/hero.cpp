@@ -1,7 +1,6 @@
 #include "hero.h"
 
 void Hero::init(Window *window) {
-	_init();
 	_w     = 100;
 	_h     = 126;
 	_speed = 0.1f;

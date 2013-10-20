@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\src\actor\actor.cpp" />
     <ClCompile Include="..\..\src\actor\hero\hero.cpp" />
+    <ClCompile Include="..\..\src\actor\zombie\zombie.cpp" />
     <ClCompile Include="..\..\src\engine\engine.cpp" />
     <ClCompile Include="..\..\src\main.cpp" />
     <ClCompile Include="..\..\src\states\gameplay\gameplay.cpp" />
@@ -23,6 +24,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\src\actor\actor.h" />
     <ClInclude Include="..\..\src\actor\hero\hero.h" />
+    <ClInclude Include="..\..\src\actor\zombie\zombie.h" />
     <ClInclude Include="..\..\src\engine\engine.h" />
     <ClInclude Include="..\..\src\states\gameplay\gameplay.h" />
     <ClInclude Include="..\..\src\states\loop.h" />

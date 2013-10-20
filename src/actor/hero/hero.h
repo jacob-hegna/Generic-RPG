@@ -6,6 +6,9 @@
 class Hero : public Actor {
 public:
 	Hero(void) : Actor() {
+		
+	}
+	Hero(float x, float y) : Actor(x, y) {
 
 	}
 	~Hero(void) {

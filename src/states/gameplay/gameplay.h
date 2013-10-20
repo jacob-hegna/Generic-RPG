@@ -3,9 +3,11 @@
 
 #include "../../engine/engine.h"
 #include "../../actor/hero/hero.h"
+#include "../../actor/zombie/zombie.h"
 
 namespace Gameplay {
 	extern Hero *hero;
+	extern Zombie *zombie[];
 
 	void init(Engine *engine);
 	void logic(Engine *engine);

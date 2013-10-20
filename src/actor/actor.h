@@ -8,13 +8,21 @@
 class Actor {
 public:
 	Actor(void) {
-
+		_init();
+	}
+	Actor(float x, float y) {
+		_init(x, y);
 	}
 	~Actor(void) {
 
 	}
 
 	void render(Window* window);
+
+	float getX(void) {return _x;}
+	float getY(void) {return _y;}
+	float getW(void) {return _w;}
+	float getH(void) {return _h;}
 protected:
 	float _x, _y;
 	float _w, _h;
@@ -22,7 +30,7 @@ protected:
 
 	SDL_Texture *_tex;
 
-	void _init(void);
+	void _init(float x = 0, float y = 0);
 };
 
 #endif

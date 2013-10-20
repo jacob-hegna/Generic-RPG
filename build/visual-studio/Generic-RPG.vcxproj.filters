@@ -25,6 +25,9 @@
     <Filter Include="src\util">
       <UniqueIdentifier>{fedee241-6b78-4366-967d-9c0a3a0e97ad}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\actor\zombie">
+      <UniqueIdentifier>{5f47cea0-2fd7-4e07-9ab2-6be29a347eb6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\main.cpp">
@@ -51,6 +54,9 @@
     <ClCompile Include="..\..\src\util\applySurface.cpp">
       <Filter>src\util</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\actor\zombie\zombie.cpp">
+      <Filter>src\actor\zombie</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\window\window.h">
@@ -73,6 +79,9 @@
     </ClInclude>
     <ClInclude Include="..\..\src\util\applySurface.h">
       <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\actor\zombie\zombie.h">
+      <Filter>src\actor\zombie</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
