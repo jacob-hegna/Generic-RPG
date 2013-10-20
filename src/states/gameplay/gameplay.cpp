@@ -3,7 +3,7 @@
 Hero *Gameplay::hero = nullptr;
 Zombie *Gameplay::zombie;
 
-Font test;
+Font Gameplay::arial;
 
 void Gameplay::init(Engine *engine) {
 	hero = new Hero(0,0);
@@ -11,9 +11,10 @@ void Gameplay::init(Engine *engine) {
 
 	zombie = new Zombie(500,500);
 	zombie->init(engine->getWindow());
-	
-	test.setRen(engine->getWindow());
-	test.loadTTF("media/images/etc/arial.ttf", 28);
+
+	arial.setRen(engine->getWindow());
+	arial.loadTTF("media/images/etc/arial.ttf", 24);
+	arial.setColor(0, 0, 0);
 }
 
 void Gameplay::logic(Engine *engine) {
@@ -25,8 +26,7 @@ void Gameplay::render(Engine *engine) {
 	hero->render();
 	zombie->render();
 
-	test.setColor(0, 0, 0);
-	test.print("Hello world!", 100, 100);
+	arial.print(SSTR(floor(engine->getFps())), 5, 5);
 }
 
 void Gameplay::free(Engine *engine) {

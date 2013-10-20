@@ -43,7 +43,7 @@ public:
 	}
 
 	float getFps(void) {
-		return _window->getFrames()/_timer.get_ticks();
+		return _window->getFrames()/(_timer.get_ticks()/1000.f);
 	}
 
 private:

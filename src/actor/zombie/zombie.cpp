@@ -1,7 +1,7 @@
 #include "zombie.h"
 
 void Zombie::init(Window *window) {
-	_speed = 0.06f;
+	_speed = 1.f;
 	_tex.init(window->getRen());
 	_tex.loadIMG("media/images/actors/zombie/front.png");
 	_w = _tex.getW();

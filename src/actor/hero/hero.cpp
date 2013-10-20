@@ -1,7 +1,7 @@
 #include "hero.h"
 
 void Hero::init(Window *window) {
-	_speed = 0.1f;
+	_speed = 2.f;
 	_pos   = NFRONT;
 
 	for(int i = 0; i < 8; ++i) {

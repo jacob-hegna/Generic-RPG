@@ -5,6 +5,7 @@
 #include <fstream>
 #include <sys/stat.h>
 #include <iostream>
+#include <cmath>
 
 #include <rapidxml/rapidxml.hpp>
 #include <rapidxml/rapidxml_utils.hpp>
@@ -25,15 +26,11 @@ public:
 	void free(void);
 
 	static int initSDL(void) {
-		if(!SDL_Init(SDL_INIT_EVERYTHING)) {
+		if(SDL_Init(SDL_INIT_EVERYTHING) == -1) {
 			return -1;
 		}
-		if(!IMG_Init(IMG_INIT_PNG)) {
-			return -2;
-		}
-		if(!TTF_Init()) {
-			return -3;
-		}
+		IMG_Init(IMG_INIT_PNG);
+		TTF_Init();
 		return 0;
 	}
 

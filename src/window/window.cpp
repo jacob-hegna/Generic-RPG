@@ -76,6 +76,7 @@ int Window::init(void)
 	_frames  = 0;
 	_close   = false;
 
+	SDL_SetHint( SDL_HINT_RENDER_VSYNC, "1" );
 	SDL_SetHint( SDL_HINT_RENDER_SCALE_QUALITY, "1" );
 
 	_window = SDL_CreateWindow( _title.c_str(), _x, _y, _w, _h, SDL_WINDOW_SHOWN );
