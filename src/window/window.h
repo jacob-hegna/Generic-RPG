@@ -7,9 +7,6 @@
 #include <iostream>
 #include <cmath>
 
-#include <rapidxml/rapidxml.hpp>
-#include <rapidxml/rapidxml_utils.hpp>
-
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>

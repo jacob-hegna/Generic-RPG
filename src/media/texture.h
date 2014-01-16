@@ -32,6 +32,7 @@ public:
 
 	int getW(void) {return _w;}
 	int getH(void) {return _h;}
+	SDL_Texture** getTex(void) {return &_tex;}
 private:
 	SDL_Texture  *_tex;
 	SDL_Renderer *_ren;
