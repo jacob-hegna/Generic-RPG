@@ -9,24 +9,24 @@
 
 class Map {
 public:
-	Map(void) {
+    Map(void) {
 
-	}
-	Map(std::string path) {
-		init(path);
-	}
-	~Map(void) {
+    }
+    Map(std::string path) {
+        init(path);
+    }
+    ~Map(void) {
 
-	}
+    }
 
-	void init(std::string path);
-	void render(void);
-	void free(void);
+    void init(std::string path);
+    void render(void);
+    void free(void);
 
 private:
-	Texture **_tex;
+    Texture **_tex;
 
-	int _w, _h;
+    int _w, _h;
 };
 
 #endif

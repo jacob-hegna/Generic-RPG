@@ -11,27 +11,27 @@
 
 class Zombie : public Actor {
 public:
-	Zombie(void) : Actor() {
+    Zombie(void) : Actor() {
 
-	}
-	Zombie(float x, float y) : Actor(x, y) {
+    }
+    Zombie(float x, float y) : Actor(x, y) {
 
-	}
-	~Zombie(void) {
-		_free();
-	}
+    }
+    ~Zombie(void) {
+        _free();
+    }
 
-	void init(Window *window);
-	void move(Hero *hero);
+    void init(Window *window);
+    void move(Hero *hero);
 
-	void decHealth(float amt) {_health -= amt;}
-	Sound* getSound(void) {return &_hitSound;}
+    void decHealth(float amt) {_health -= amt;}
+    Sound* getSound(void) {return &_hitSound;}
 private:
-	void _free();
+    void _free();
 
-	bool _hit;
-	bool _soundBuf;
-	Sound _hitSound;
+    bool _hit;
+    bool _soundBuf;
+    Sound _hitSound;
 };
 
 #endif

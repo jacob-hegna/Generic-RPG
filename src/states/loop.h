@@ -6,7 +6,7 @@
 #include "gameplay/gameplay.h"
 
 enum Gamestates {
-	GAMEPLAY
+    GAMEPLAY
 };
 extern Gamestates gamestates;
 static const int stateAmt = 1;

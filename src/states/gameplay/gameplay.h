@@ -12,15 +12,15 @@
 #include "../../util/sstr.h"
 
 namespace Gameplay {
-	extern Hero *hero;
-	extern Zombie *zombie;
-	extern Font arial;
-	extern Music music;
+    extern Hero *hero;
+    extern Zombie *zombie;
+    extern Font arial;
+    extern Music music;
 
-	void init(Engine *engine);
-	void logic(Engine *engine);
-	void render(Engine *engine);
-	void free(Engine *engine);
+    void init(Engine *engine);
+    void logic(Engine *engine);
+    void render(Engine *engine);
+    void free(Engine *engine);
 };
 
 #endif

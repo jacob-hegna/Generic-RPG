@@ -7,34 +7,34 @@
 
 class Hero : public Actor {
 public:
-	Hero(void) : Actor() {
-		
-	}
-	Hero(float x, float y) : Actor(x, y) {
+    Hero(void) : Actor() {
+        
+    }
+    Hero(float x, float y) : Actor(x, y) {
 
-	}
-	~Hero(void) {
-		_free();
-	}
+    }
+    ~Hero(void) {
+        _free();
+    }
 
-	void init(Window *window);
-	void move(void);
+    void init(Window *window);
+    void move(void);
 
-	bool ifSlash(void) {
-		return (_pos==SFRONT||_pos==SBACK||_pos==SLEFT||_pos==SRIGHT);
-	}
+    bool ifSlash(void) {
+        return (_pos==SFRONT||_pos==SBACK||_pos==SLEFT||_pos==SRIGHT);
+    }
 
 private:
-	void _free(void);
+    void _free(void);
 
-	Texture _multiTex[8];
-	Sound   _slashSound;
-	bool    _playBuf;
+    Texture _multiTex[8];
+    Sound   _slashSound;
+    bool    _playBuf;
 
-	enum {
-		NFRONT, NBACK, NLEFT, NRIGHT,
-		SFRONT, SBACK, SLEFT, SRIGHT
-	} _pos;
+    enum {
+        NFRONT, NBACK, NLEFT, NRIGHT,
+        SFRONT, SBACK, SLEFT, SRIGHT
+    } _pos;
 };
 
 #endif

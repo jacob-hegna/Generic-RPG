@@ -8,19 +8,19 @@
 
 class Mixer {
 public:
-	Mixer(void) {
+    Mixer(void) {
 
-	}
-	Mixer(std::string path) {
-		init(path);
-	}
-	~Mixer(void) {
+    }
+    Mixer(std::string path) {
+        init(path);
+    }
+    ~Mixer(void) {
 
-	}
+    }
 
-	virtual void init(std::string path) = 0;
-	virtual void play(void)             = 0;
-	virtual void free(void)             = 0;
+    virtual void init(std::string path) = 0;
+    virtual void play(void)             = 0;
+    virtual void free(void)             = 0;
 protected:
 };
 

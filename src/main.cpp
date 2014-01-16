@@ -7,17 +7,17 @@
 int WINAPI WinMain(HINSTANCE hInstance,
                    HINSTANCE hPrevInstance,
                    LPSTR lpCmdLine,
-                   int nCmdShow)
+                     int nCmdShow)
 #else
 int main(int argc, char *argv[])
 #endif
 {
-	Window::initSDL();
-	Window *window = new Window();
-	window->init();
+    Window::initSDL();
+    Window *window = new Window();
+    window->init();
 
-	loop(window);
+    loop(window);
 
-	Window::deinitSDL();
-	return 0;
+    Window::deinitSDL();
+    return 0;
 }
