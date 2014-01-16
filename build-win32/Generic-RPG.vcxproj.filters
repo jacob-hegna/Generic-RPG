@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\window\window.cpp">
+      <Filter>window</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\util\randf.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\util\timer.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\states\loop.cpp">
+      <Filter>states</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\states\gameplay\gameplay.cpp">
+      <Filter>states\gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\media\font.cpp">
+      <Filter>media</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\media\texture.cpp">
+      <Filter>media</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\map\map.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\engine\engine.cpp">
+      <Filter>engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\actor\actor.cpp">
+      <Filter>actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\actor\zombie\zombie.cpp">
+      <Filter>actor\zombie</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\actor\hero\hero.cpp">
+      <Filter>actor\hero</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="window">
+      <UniqueIdentifier>{3a214c7d-8944-4d13-87fc-95655e36aed6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util">
+      <UniqueIdentifier>{3f9f0138-7ff3-46c3-9294-c0130400bc66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="states">
+      <UniqueIdentifier>{4964625b-d4c6-478a-8e44-af03d905006a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="states\gameplay">
+      <UniqueIdentifier>{bfe7226b-b997-4049-9096-5147a61e4151}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="media">
+      <UniqueIdentifier>{82a4d6ab-2751-4eff-a25c-246dad66bc71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="media\mixer">
+      <UniqueIdentifier>{9166eb0d-acc3-4f46-85a0-957244a3b640}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="map">
+      <UniqueIdentifier>{144ae3b2-253f-4cf6-8f46-83be7554a5b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine">
+      <UniqueIdentifier>{96697a98-b65b-40a7-a536-565f117fcc37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="actor">
+      <UniqueIdentifier>{7be67b02-fd13-4628-b895-cc929f634051}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="actor\zombie">
+      <UniqueIdentifier>{b18e6452-91b9-4a56-93aa-fffc3ead9c27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="actor\hero">
+      <UniqueIdentifier>{746077ec-14eb-44cb-9cb7-c01dc2f8ce5d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\window\window.h">
+      <Filter>window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\util\buffunc.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\util\randf.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\util\sstr.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\util\timer.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\states\loop.h">
+      <Filter>states</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\states\gameplay\gameplay.h">
+      <Filter>states\gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\media\font.h">
+      <Filter>media</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\media\texture.h">
+      <Filter>media</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\media\mixer\mixer.h">
+      <Filter>media\mixer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\media\mixer\music.h">
+      <Filter>media\mixer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\media\mixer\sound.h">
+      <Filter>media\mixer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\map\map.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\engine\engine.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\actor\actor.h">
+      <Filter>actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\actor\zombie\zombie.h">
+      <Filter>actor\zombie</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\actor\hero\hero.h">
+      <Filter>actor\hero</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\media\resources.rc" />
+  </ItemGroup>
+</Project>
