@@ -14,37 +14,34 @@ void Zombie::init(Window *window) {
     _h = _tex.getH();
 
     _hit      = false;
-    _soundBuf = false;
-    _hitSound.init("media/audio/zombHit.wav");
+    _hitBuf   = false;
 }
 
-void Zombie::move(Hero *hero) {
-    if(hero->getX() > _x) _x += _speed;
-    if(hero->getX() < _x) _x -= _speed;
-    if(hero->getY() > _y) _y += _speed;
-    if(hero->getY() < _y) _y -= _speed;
-
-    if(hero->ifSlash()) {
-        if((hero->getX()+hero->getW()/2) > _x && (hero->getX()+hero->getW()/2) < _x+_w) {
-            if((hero->getY()+hero->getH()/2) > _y && (hero->getY()+hero->getH()/2) < _y+_h) {
+void Zombie::hitDetect(Hero *target) {
+    if (target->ifAttack()) {
+        if ((target->getX() + target->getW() / 2) > _x && (target->getX() + target->getW() / 2) < _x + _w) {
+            if ((target->getY() + target->getH() / 2) > _y && (target->getY() + target->getH() / 2) < _y + _h) {
                 _hit = true;
-            } else {
+            }
+            else {
                 _hit = false;
             }
-        } else {
+        }
+        else {
             _hit = false;
         }
-    } else {
+    }
+    else {
         _hit = false;
     }
-    bufFunc(_hit, &_soundBuf,
-            [] (Hero *hero, Zombie *zombie) {zombie->getSound()->play();zombie->decHealth(hero->getDamage());},
-            hero, this);
 
-    if(_health < 0) die();
+    bufFunc(_hit, &_hitBuf,
+        [](Hero *hero, Zombie *zombie) {zombie->decHealth(hero->getDamage());},
+        target, this);
+
+    if (_health < 0) die();
 }
 
 void Zombie::_free(void) {
-    _hitSound.free();
     _tex.free();
 }

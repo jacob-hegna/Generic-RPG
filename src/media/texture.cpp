@@ -5,8 +5,6 @@ void Texture::init(SDL_Renderer *ren) {
 }
 
 void Texture::loadIMG(std::string path) {
-    free();
-
     SDL_Surface* loadedSurface = IMG_Load( path.c_str() );
     if( loadedSurface == nullptr )
     {

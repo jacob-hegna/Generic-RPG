@@ -20,7 +20,8 @@ public:
     void init(Window *window);
     void move(void);
 
-    bool ifSlash(void) {
+    void shiftX(float dx) {_x+=dx;}
+    bool ifAttack(void) {
         return (_pos==SFRONT||_pos==SBACK||_pos==SLEFT||_pos==SRIGHT);
     }
 
@@ -30,6 +31,7 @@ private:
     Texture _multiTex[8];
     Sound   _slashSound;
     bool    _playBuf;
+    bool    _shiftBuf;
 
     enum {
         NFRONT, NBACK, NLEFT, NRIGHT,

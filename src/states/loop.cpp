@@ -11,10 +11,12 @@ int loop(Window *window) {
 
     engine[GAMEPLAY]->init(window, Gameplay::init, Gameplay::logic, Gameplay::render, Gameplay::free, "Gameloop");
 
-    while(!window->shouldClose()) {        
+    while(!window->shouldClose()) {   
+        const Uint8* keystate = SDL_GetKeyboardState(NULL);
+
         engine[gamestates]->exec();
 
-        if(window->getEvent()->type == SDL_QUIT) {
+        if(window->getEvent()->type == SDL_QUIT || keystate[SDL_GetScancodeFromKey(SDLK_ESCAPE)]) {
             window->close();
         }
         window->update();

@@ -35,19 +35,19 @@ void Hero::move(void) {
 
     if(keystate[SDL_GetScancodeFromKey(SDLK_w)]) {
         _y -= _speed;
-        _pos = ifSlash() ? SBACK : NBACK;
+        _pos = ifAttack() ? SBACK : NBACK;
     }
     if(keystate[SDL_GetScancodeFromKey(SDLK_s)]) {
         _y += _speed;
-        _pos = ifSlash() ? SFRONT : NFRONT;
+        _pos = ifAttack() ? SFRONT : NFRONT;
     }
     if(keystate[SDL_GetScancodeFromKey(SDLK_a)]) {
         _x -= _speed;
-        _pos = ifSlash() ? SLEFT : NLEFT;
+        _pos = ifAttack() ? SLEFT : NLEFT;
     }
     if(keystate[SDL_GetScancodeFromKey(SDLK_d)]) {
         _x += _speed;
-        _pos = ifSlash() ? SRIGHT : NRIGHT;
+        _pos = ifAttack() ? SRIGHT : NRIGHT;
     }
 
     bufFunc(keystate[SDL_GetScancodeFromKey(SDLK_SPACE)], &_playBuf,
@@ -58,14 +58,14 @@ void Hero::move(void) {
         switch(_pos) {
             case NFRONT: _pos = SFRONT; break;
             case NBACK:  _pos = SBACK;  break;
-            case NLEFT:  _pos = SLEFT;  break;
+            case NLEFT:  _pos = SLEFT;  _x -= 26; break;
             case NRIGHT: _pos = SRIGHT; break;
         }
     } else if(!keystate[SDL_GetScancodeFromKey(SDLK_SPACE)]) {
         switch(_pos) {
             case SFRONT: _pos = NFRONT; break;
             case SBACK:  _pos = NBACK;  break;
-            case SLEFT:  _pos = NLEFT;  break;
+            case SLEFT:  _pos = NLEFT;  _x += 26; break;
             case SRIGHT: _pos = NRIGHT; break;
         }
     }

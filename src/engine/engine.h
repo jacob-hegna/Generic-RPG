@@ -1,5 +1,5 @@
-#ifndef _ENGINE_H_
-#define _ENGINE_H_
+#ifndef _ENGINE_H
+#define _ENGINE_H
 
 #include <string>
 
@@ -11,71 +11,102 @@
 // and the settings menu are controlled here
 class Engine {
 public:
-    Engine(void) {
-        //Nothing to do here...
-    }
+	Engine(void) {
+		//Nothing to do here...
+	}
 
-    Engine(Window *window, void (*_init)(Engine*), void (*logic)(Engine*), void (*render)(Engine*), void (*free)(Engine*), const char* name) {
-        init(window, _init, logic, render, free, name);
-    }
+	Engine(Window *window, void (*_init)(Engine*), void (*logic)(Engine*), void (*render)(Engine*), void (*free)(Engine*), const char* name) {
+		init(window, _init, logic, render, free, name);
+	}
 
-    ~Engine(void) {
-        free();
-    }
-    void free(void) {
-        if(_free != nullptr) _free(this);
-    }
+	~Engine(void) {
+		free();
+	}
+	void free(void) {
+		if(_free != nullptr) _free(this);
+	}
 
-    void init(Window *window, void(*_init)(Engine*), void (*logic)(Engine*), void (*render)(Engine*), void (*free)(Engine*), const char* name);
+	void init(Window *window, void(*_init)(Engine*), void (*logic)(Engine*), void (*render)(Engine*), void (*free)(Engine*), const char* name);
 
-    void exec(void);
+	void exec(void);
 
-    Window* getWindow(void) {
-        return _window;
-    }
+	// Have to use the underscore so it is a legit name
+	void switch_(void) {
+		_timer.pause();
+		_switch = true;
+	}
 
-    void pause(void) {
-        _timer.pause();
-    }
+	template <class T>
+	void setData(T* t) {
+		if(t != nullptr) {
+			_data = t;
+		}
+	}
 
-    int getTime(void) {
-        return _timer.get_ticks();
-    }
+	template <class T>
+	T* getData() {
+		return static_cast<T*>(_data);
+	}
 
-    float getFps(void) {
-        return _window->getFrames()/(_timer.get_ticks()/1000.f);
-    }
+	Window* getWindow(void) {
+		return _window;
+	}
+
+	float getTime(void) {
+		return _timer.get_ticks();
+	}
+	int getFrames(void) {
+		return _frames;
+	}
+
+	double getFps(void) {
+        return _window->getFrames() / (_timer.get_ticks() / 1000.f);
+	}
+	double getInstFps(void) {
+		return (_instFps > 5) ? _instFps : 5;
+	}
 
 private:
-    Window *_window;
+	Window *_window;
 
-    const char* _name;
+	const char* _name;
 
-    // Function pointers
-    void (*_logic)(Engine*);
-    void (*_render)(Engine*);
-    void (*_free)(Engine*);
+	// Function pointers
+	void (*_logic)(Engine*);
+	void (*_render)(Engine*);
+	void (*_free)(Engine*);
 
-    /* Every engine will have these functions
-    * void init(Engine*) {
-    *     // This will initialize anything you need for that scene
-    * }
-    * 
-    * void logic(Engine*) {
-    *     // This does any math/logic needed for the scene
-    * }
-    * 
-    * void render(Engine*) {
-    *     // This ONLY renders things to the screen
-    * }
-    * 
-    * void free(Engine*) {
-    *     // This frees any data allocated in void init(Engine*)
-    * }
-    */
+	/* Every engine will have these functions
+	* void init(Engine*) {
+	*     // This will initialize anything you need for that scene
+	* }
+	* 
+	* void logic(Engine*) {
+	*     // This does any math/logic needed for the scene
+	* }
+	* 
+	* void render(Engine*) {
+	*     // This ONLY renders things to the screen
+	* }
+	* 
+	* void free(Engine*) {
+	*     // This frees any data allocated in void init(Engine*)
+	* }
+	*/	
 
-    Timer _timer;
+	// Misc data storage
+	// This can store a pointer to a stuct
+	// where you can store data to use
+	void *_data;
 
+	// Timer is used for fps
+	Timer _timer;
+	int _frames;
+	int _lastFrame;
+	float _instFps;
+
+	// Used basically only for the timer
+	bool _switch;
 };
 
 #endif

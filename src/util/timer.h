@@ -14,6 +14,8 @@ class Timer
     bool paused;
     bool started;
 
+    double _instStart;
+
     public:
     //Initializes variables
     Timer();
@@ -23,6 +25,9 @@ class Timer
     void stop();
     void pause();
     void unpause();
+
+    void setInstant(void);
+    double getInstant(void);
 
     //Gets the timer's time
     int get_ticks();

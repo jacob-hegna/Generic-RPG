@@ -60,6 +60,14 @@ void Timer::unpause()
     }
 }
 
+void Timer::setInstant(void) {
+    _instStart = get_ticks();
+}
+
+double Timer::getInstant(void) {
+    return get_ticks() - _instStart;
+}
+
 int Timer::get_ticks()
 {
     //If the timer is running

@@ -22,16 +22,13 @@ public:
     }
 
     void init(Window *window);
-    void move(Hero *hero);
+    void hitDetect(Hero *target);
 
     void decHealth(float amt) {_health -= amt;}
-    Sound* getSound(void) {return &_hitSound;}
 private:
     void _free();
 
-    bool _hit;
-    bool _soundBuf;
-    Sound _hitSound;
+    bool _hitBuf;
 };
 
 #endif

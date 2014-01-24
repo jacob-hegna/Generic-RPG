@@ -24,11 +24,14 @@ public:
 
     void render(void);
     void die(void);
+    void autoMove(Actor *actor);
 
     float getX(void)      {return _x;}
     float getY(void)      {return _y;}
     float getW(void)      {return _w;}
     float getH(void)      {return _h;}
+    float getXMid(void)   {return _x+_w/2;}
+    float getYMid(void)   {return _y+_h/2;}
     float getHealth(void) {return _health;}
     float getDamage(void) {return _damage;}
     float getDead(void)   {return _dead;}
@@ -40,6 +43,7 @@ protected:
           _mhealth;
     float _damage;
     bool  _dead;
+    bool _hit;
             
 
     Texture _tex;
