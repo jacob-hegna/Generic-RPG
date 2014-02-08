@@ -4,6 +4,7 @@
 #include "../actor.h"
 #include "../../media/mixer/sound.h"
 #include "../../util/buffunc.h"
+#include "../../states/gameplay/map.h"
 
 class Hero : public Actor {
 public:
@@ -18,7 +19,7 @@ public:
     }
 
     void init(Window *window);
-    void move(void);
+    void move(Gameplay::Map *map);
 
     void shiftX(float dx) {_x+=dx;}
     bool ifAttack(void) {
@@ -30,6 +31,7 @@ private:
 
     Texture _multiTex[8];
     Sound   _slashSound;
+    bool    _slash;
     bool    _playBuf;
     bool    _shiftBuf;
 

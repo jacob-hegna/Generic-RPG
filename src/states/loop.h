@@ -4,12 +4,14 @@
 #include "../window/window.h"
 
 #include "gameplay/gameplay.h"
+#include "menu/pause.h"
 
 enum Gamestates {
-    GAMEPLAY
+    GAMEPLAY,
+    PAUSEMENU
 };
 extern Gamestates gamestates;
-static const int stateAmt = 1;
+static const int stateAmt = 2;
 
 int loop(Window *window);
 

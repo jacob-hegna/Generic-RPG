@@ -10,13 +10,25 @@ int loop(Window *window) {
     }
 
     engine[GAMEPLAY]->init(window, Gameplay::init, Gameplay::logic, Gameplay::render, Gameplay::free, "Gameloop");
+    engine[PAUSEMENU]->init(window, PauseMenu::init, PauseMenu::logic, PauseMenu::render, PauseMenu::free, "Pause Menu");
 
     while(!window->shouldClose()) {   
         const Uint8* keystate = SDL_GetKeyboardState(NULL);
 
         engine[gamestates]->exec();
 
-        if(window->getEvent()->type == SDL_QUIT || keystate[SDL_GetScancodeFromKey(SDLK_ESCAPE)]) {
+        if(keystate[SDL_GetScancodeFromKey(SDLK_ESCAPE)]) {
+            switch(gamestates) {
+            case GAMEPLAY:
+                gamestates = PAUSEMENU;
+                break;
+            case PAUSEMENU:
+                gamestates = GAMEPLAY;
+                break;
+            }
+        }
+
+        if(window->getEvent()->type == SDL_QUIT) {
             window->close();
         }
         window->update();

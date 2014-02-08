@@ -12,8 +12,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\actor\actor.cpp" />
+    <ClCompile Include="..\src\actor\enemy\enemy.cpp" />
     <ClCompile Include="..\src\actor\hero\hero.cpp" />
-    <ClCompile Include="..\src\actor\zombie\zombie.cpp" />
     <ClCompile Include="..\src\engine\engine.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\map\map.cpp" />
@@ -21,14 +21,17 @@
     <ClCompile Include="..\src\media\texture.cpp" />
     <ClCompile Include="..\src\states\gameplay\gameplay.cpp" />
     <ClCompile Include="..\src\states\loop.cpp" />
+    <ClCompile Include="..\src\states\menu\pause.cpp" />
     <ClCompile Include="..\src\util\randf.cpp" />
     <ClCompile Include="..\src\util\timer.cpp" />
     <ClCompile Include="..\src\window\window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\actor\actor.h" />
+    <ClInclude Include="..\src\actor\enemy\enemy.h" />
+    <ClInclude Include="..\src\actor\enemy\skeleton.h" />
+    <ClInclude Include="..\src\actor\enemy\zombie\zombie.h" />
     <ClInclude Include="..\src\actor\hero\hero.h" />
-    <ClInclude Include="..\src\actor\zombie\zombie.h" />
     <ClInclude Include="..\src\engine\engine.h" />
     <ClInclude Include="..\src\map\map.h" />
     <ClInclude Include="..\src\media\font.h" />
@@ -38,6 +41,7 @@
     <ClInclude Include="..\src\media\texture.h" />
     <ClInclude Include="..\src\states\gameplay\gameplay.h" />
     <ClInclude Include="..\src\states\loop.h" />
+    <ClInclude Include="..\src\states\menu\pause.h" />
     <ClInclude Include="..\src\util\buffunc.h" />
     <ClInclude Include="..\src\util\randf.h" />
     <ClInclude Include="..\src\util\sstr.h" />

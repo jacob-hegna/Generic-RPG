@@ -5,6 +5,7 @@
 
 #include "../window/window.h"
 #include "../media/texture.h"
+#include "../states/gameplay/map.h"
 
 class Actor {
 public:
@@ -24,7 +25,7 @@ public:
 
     void render(void);
     void die(void);
-    void autoMove(Actor *actor);
+    void autoMove(Actor *actor, Gameplay::Map *map);
 
     float getX(void)      {return _x;}
     float getY(void)      {return _y;}
@@ -37,6 +38,7 @@ public:
     float getDead(void)   {return _dead;}
 protected:
     float _x, _y;
+    float _mapX, _mapY;
     float _w, _h;
     float _speed;
     float _health,

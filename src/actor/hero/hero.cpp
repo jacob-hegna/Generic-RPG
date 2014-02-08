@@ -29,24 +29,24 @@ void Hero::init(Window *window) {
     _playBuf = false;
 }
 
-void Hero::move(void) {
+void Hero::move(Gameplay::Map *map) {
     _tex = _multiTex[_pos];
     const Uint8* keystate = SDL_GetKeyboardState(NULL);
 
     if(keystate[SDL_GetScancodeFromKey(SDLK_w)]) {
-        _y -= _speed;
+        (_y > map->bufT) ? _y -= _speed : map->y -= _speed;
         _pos = ifAttack() ? SBACK : NBACK;
     }
     if(keystate[SDL_GetScancodeFromKey(SDLK_s)]) {
-        _y += _speed;
+        (_y + _h < map->bufD) ? _y += _speed : map->y += _speed;
         _pos = ifAttack() ? SFRONT : NFRONT;
     }
     if(keystate[SDL_GetScancodeFromKey(SDLK_a)]) {
-        _x -= _speed;
+        (_x > map->bufL) ? _x -= _speed : map->x -= _speed;
         _pos = ifAttack() ? SLEFT : NLEFT;
     }
     if(keystate[SDL_GetScancodeFromKey(SDLK_d)]) {
-        _x += _speed;
+        (_x + _w < map->bufR) ? _x += _speed : map->x += _speed;
         _pos = ifAttack() ? SRIGHT : NRIGHT;
     }
 
@@ -69,6 +69,9 @@ void Hero::move(void) {
             case SRIGHT: _pos = NRIGHT; break;
         }
     }
+
+    _mapX = _x;
+    _mapY = _y;
 }
 
 void Hero::_free(void) {

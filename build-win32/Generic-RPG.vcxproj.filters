@@ -32,11 +32,14 @@
     <ClCompile Include="..\src\actor\actor.cpp">
       <Filter>actor</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\actor\zombie\zombie.cpp">
-      <Filter>actor\zombie</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\actor\hero\hero.cpp">
       <Filter>actor\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\states\menu\pause.cpp">
+      <Filter>states\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\actor\enemy\enemy.cpp">
+      <Filter>actor\enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -67,11 +70,14 @@
     <Filter Include="actor">
       <UniqueIdentifier>{7be67b02-fd13-4628-b895-cc929f634051}</UniqueIdentifier>
     </Filter>
-    <Filter Include="actor\zombie">
-      <UniqueIdentifier>{b18e6452-91b9-4a56-93aa-fffc3ead9c27}</UniqueIdentifier>
-    </Filter>
     <Filter Include="actor\hero">
       <UniqueIdentifier>{746077ec-14eb-44cb-9cb7-c01dc2f8ce5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="states\menu">
+      <UniqueIdentifier>{f457ac6e-773d-4f80-a6f8-9d5715868b7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="actor\enemy">
+      <UniqueIdentifier>{94ba6797-7dcc-4385-9c56-e18fd081587b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -120,11 +126,20 @@
     <ClInclude Include="..\src\actor\actor.h">
       <Filter>actor</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\actor\zombie\zombie.h">
-      <Filter>actor\zombie</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\actor\hero\hero.h">
       <Filter>actor\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\states\menu\pause.h">
+      <Filter>states\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\actor\enemy\enemy.h">
+      <Filter>actor\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\actor\enemy\zombie\zombie.h">
+      <Filter>actor\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\actor\enemy\skeleton.h">
+      <Filter>actor\enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
