@@ -17,7 +17,6 @@ public:
 
     void move(Actor *actor, Gameplay::Map *map);
     void hitDetect(Hero *target);
-    void decHealth(float amt) {_health -= amt;}
 
 protected:
     bool _hitBuf;

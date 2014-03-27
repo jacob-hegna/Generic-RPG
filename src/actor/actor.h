@@ -27,15 +27,18 @@ public:
     void die(void);
     void autoMove(Actor *actor, Gameplay::Map *map);
 
-    float getX(void)      {return _x;}
-    float getY(void)      {return _y;}
-    float getW(void)      {return _w;}
-    float getH(void)      {return _h;}
-    float getXMid(void)   {return _x+_w/2;}
-    float getYMid(void)   {return _y+_h/2;}
-    float getHealth(void) {return _health;}
-    float getDamage(void) {return _damage;}
-    float getDead(void)   {return _dead;}
+    void hurt(float amt) {_health -= amt;}
+
+    float getX(void)       {return _x;}
+    float getY(void)       {return _y;}
+    float getW(void)       {return _w;}
+    float getH(void)       {return _h;}
+    float getXMid(void)    {return _x+_w/2;}
+    float getYMid(void)    {return _y+_h/2;}
+    float getHealth(void)  { return _health; }
+    float getMHealth(void) { return _mhealth; }
+    float getDamage(void)  {return _damage;}
+    float getDead(void)    {return _dead;}
 protected:
     float _x, _y;
     float _mapX, _mapY;

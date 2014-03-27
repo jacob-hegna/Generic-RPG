@@ -30,9 +30,10 @@ void Enemy::move(Actor *target, Gameplay::Map *map) {
 }
 
 void Enemy::hitDetect(Hero *target) {
-    if (target->ifAttack()) {
-        if ((target->getX() + target->getW() / 2) > _mapX && (target->getX() + target->getW() / 2) < _mapX + _w) {
-            if ((target->getY() + target->getH() / 2) > _mapY && (target->getY() + target->getH() / 2) < _mapY + _h) {
+    if ((target->getX() + target->getW() / 2) > _mapX && (target->getX() + target->getW() / 2) < _mapX + _w) {
+        if ((target->getY() + target->getH() / 2) > _mapY && (target->getY() + target->getH() / 2) < _mapY + _h) {
+            target->hurt(_damage);
+            if (target->ifAttack()) {
                 _hit = true;
             }
             else {
@@ -48,7 +49,7 @@ void Enemy::hitDetect(Hero *target) {
     }
 
     bufFunc(_hit, &_hitBuf,
-        [](Hero *hero, Enemy *enemy) {enemy->decHealth(hero->getDamage());},
+        [](Hero *hero, Enemy *enemy) {enemy->hurt(hero->getDamage());},
         target, this);
 
     if (_health < 0) die();

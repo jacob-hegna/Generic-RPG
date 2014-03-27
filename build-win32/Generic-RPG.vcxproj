@@ -33,6 +33,7 @@
     <ClInclude Include="..\src\actor\enemy\zombie\zombie.h" />
     <ClInclude Include="..\src\actor\hero\hero.h" />
     <ClInclude Include="..\src\engine\engine.h" />
+    <ClInclude Include="..\src\globals.h" />
     <ClInclude Include="..\src\map\map.h" />
     <ClInclude Include="..\src\media\font.h" />
     <ClInclude Include="..\src\media\mixer\mixer.h" />
@@ -44,7 +45,6 @@
     <ClInclude Include="..\src\states\menu\pause.h" />
     <ClInclude Include="..\src\util\buffunc.h" />
     <ClInclude Include="..\src\util\randf.h" />
-    <ClInclude Include="..\src\util\sstr.h" />
     <ClInclude Include="..\src\util\timer.h" />
     <ClInclude Include="..\src\window\window.h" />
   </ItemGroup>

@@ -9,6 +9,8 @@ std::vector<Skeleton*> Gameplay::skeleton;
 Font Gameplay::arial;
 Music Gameplay::music;
 
+Gameplay::HUD Gameplay::hud;
+
 void Gameplay::init(Engine *engine) {
     hero = new Hero(120, 120);
     hero->init(engine->getWindow());
@@ -89,12 +91,24 @@ void Gameplay::init(Engine *engine) {
             }
         }
     }
+
+    hud.bar.init(engine->getWindow()->getRen());
+    hud.bar.loadIMG("media/images/hud/back.png");
+
+    hud.healthTick.init(engine->getWindow()->getRen());
+    hud.healthTick.loadIMG("media/images/hud/healthTick.png");
+
+    hud.magicTick.init(engine->getWindow()->getRen());
+    hud.magicTick.loadIMG("media/images/hud/magicTick.png");
 }
 
 void Gameplay::logic(Engine *engine) {
     hero->move(&map);
     for(int i = 0; i < zombie.size(); ++i)   {zombie.at(i)->move(hero, &map); zombie.at(i)->hitDetect(hero);}
     for(int i = 0; i < skeleton.size(); ++i) {skeleton.at(i)->move(hero, &map); skeleton.at(i)->hitDetect(hero);}
+    if(hero->getHealth() <= 0) {
+        loopQuit = true;
+    }
 }
 
 void Gameplay::render(Engine *engine) {
@@ -109,7 +123,23 @@ void Gameplay::render(Engine *engine) {
     for(int i = 0; i < zombie.size(); ++i)   zombie.at(i)->render();
     for(int i = 0; i < skeleton.size(); ++i) skeleton.at(i)->render();
 
-    arial.print(SSTR(floor(engine->getFps())), 5, 5);
+    renderHUD(engine);
+}
+
+void Gameplay::renderHUD(Engine *engine) {
+    arial.print(std::to_string((int)engine->getFps()), 5, 5);
+
+    // Magic
+    hud.bar.render(10, engine->getWindow()->getH() - (hud.bar.getH() + 10)*2);
+    for (int i = 0; i < hud.bar.getW() - 4; ++i) {
+        hud.magicTick.render(i + 10 + 2, engine->getWindow()->getH() - (hud.bar.getH() + 10 - 1) * 2);
+    }
+
+    // Health
+    hud.bar.render(10, engine->getWindow()->getH() - (hud.bar.getH() + 10));
+    for(int i = 0; i < (float)(hud.bar.getW() - 4) * ((float)hero->getHealth()/(float)hero->getMHealth()); ++i) {
+        hud.healthTick.render(i + 10 + 2, engine->getWindow()->getH() - (hud.bar.getH() + 10 - 2));
+    }
 }
 
 void Gameplay::free(Engine *engine) {
@@ -123,4 +153,8 @@ void Gameplay::free(Engine *engine) {
     delete hero;
     for(int i = 0; i < zombie.size(); ++i)   delete zombie.at(i);
     for(int i = 0; i < skeleton.size(); ++i) delete skeleton.at(i);
+
+    hud.bar.free();
+    hud.healthTick.free();
+    hud.magicTick.free();
 }

@@ -1,4 +1,5 @@
 #include "loop.h"
+#include "../globals.h"
 
 Gamestates gamestates = GAMEPLAY;
 
@@ -12,7 +13,7 @@ int loop(Window *window) {
     engine[GAMEPLAY]->init(window, Gameplay::init, Gameplay::logic, Gameplay::render, Gameplay::free, "Gameloop");
     engine[PAUSEMENU]->init(window, PauseMenu::init, PauseMenu::logic, PauseMenu::render, PauseMenu::free, "Pause Menu");
 
-    while(!window->shouldClose()) {   
+    while(!window->shouldClose() && !loopQuit) {   
         const Uint8* keystate = SDL_GetKeyboardState(NULL);
 
         engine[gamestates]->exec();
@@ -33,8 +34,6 @@ int loop(Window *window) {
         }
         window->update();
     }
-
-    delete engine;
 
     return 0;
 }

@@ -90,9 +90,6 @@
     <ClInclude Include="..\src\util\randf.h">
       <Filter>util</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\util\sstr.h">
-      <Filter>util</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\util\timer.h">
       <Filter>util</Filter>
     </ClInclude>
@@ -141,6 +138,7 @@
     <ClInclude Include="..\src\actor\enemy\skeleton.h">
       <Filter>actor\enemy</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\globals.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\media\resources.rc" />

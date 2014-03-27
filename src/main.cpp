@@ -1,6 +1,8 @@
 #include "window/window.h"
 #include "states/loop.h"
 
+// globals.h definitions
+bool loopQuit = false;
 
 #ifdef _WIN32
 #include <Windows.h>
