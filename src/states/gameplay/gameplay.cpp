@@ -5,25 +5,31 @@ Gameplay::Map Gameplay::map;
 Hero *Gameplay::hero = nullptr;
 std::vector<Zombie*> Gameplay::zombie;
 std::vector<Skeleton*> Gameplay::skeleton;
+Portal Gameplay::portal;
 
 Font Gameplay::arial;
 Music Gameplay::music;
 
 Gameplay::HUD Gameplay::hud;
 
+char Gameplay::LevelData::currentLevel = 0;
+bool Gameplay::LevelData::levelClear   = false;
+
 void Gameplay::init(Engine *engine) {
     hero = new Hero(120, 120);
     hero->init(engine->getWindow());
 
-    for(int i = 0; i < zombieAmt; ++i) {
+    for(int i = 0; i < LevelData::zombieAmt[LevelData::levelAmt]; ++i) {
         zombie.push_back(new Zombie(345, 500));
         zombie.at(i)->init(engine->getWindow());
     }
 
-    for(int i = 0; i < skeletonAmt; ++i) {
+    for(int i = 0; i < LevelData::skeletonAmt[LevelData::levelAmt]; ++i) {
         skeleton.push_back(new Skeleton(345, 500));
         skeleton.at(i)->init(engine->getWindow());
     }
+
+    portal.init(engine->getWindow(), "media/images/items/portal.png");
 
     arial.setRen(engine->getWindow());
     arial.loadTTF("media/images/etc/arial.ttf", 24);
@@ -104,8 +110,27 @@ void Gameplay::init(Engine *engine) {
 
 void Gameplay::logic(Engine *engine) {
     hero->move(&map);
-    for(int i = 0; i < zombie.size(); ++i)   {zombie.at(i)->move(hero, &map); zombie.at(i)->hitDetect(hero);}
-    for(int i = 0; i < skeleton.size(); ++i) {skeleton.at(i)->move(hero, &map); skeleton.at(i)->hitDetect(hero);}
+    portal.logic(hero, nextLevel, engine, map.x, map.y);
+    int  clearedEnemies = 0;
+    for(int i = 0; i < LevelData::zombieAmt[LevelData::currentLevel]; ++i) {
+        if(zombie.at(i)->getDead()) clearedEnemies++;
+        zombie.at(i)->move(hero, &map);
+        zombie.at(i)->hitDetect(hero);
+    }
+
+    for(int i = 0; i < LevelData::skeletonAmt[LevelData::currentLevel]; ++i) {
+        if(skeleton.at(i)->getDead()) clearedEnemies++;
+        skeleton.at(i)->move(hero, &map);
+        skeleton.at(i)->hitDetect(hero);
+    }
+
+    if(clearedEnemies == LevelData::zombieAmt[LevelData::currentLevel] + 
+        LevelData::skeletonAmt[LevelData::currentLevel]) {
+        LevelData::levelClear = true;
+    } else {
+        LevelData::levelClear = false;
+    }
+
     if(hero->getHealth() <= 0) {
         loopQuit = true;
     }
@@ -118,10 +143,15 @@ void Gameplay::render(Engine *engine) {
         }
     }
 
-    hero->render();
+    if (LevelData::levelClear) {
+        portal.render();
+    }
 
-    for(int i = 0; i < zombie.size(); ++i)   zombie.at(i)->render();
-    for(int i = 0; i < skeleton.size(); ++i) skeleton.at(i)->render();
+    hero->renderRel();
+    hero->renderMagic();
+
+    for(int i = 0; i < LevelData::zombieAmt[LevelData::currentLevel]; ++i)   zombie.at(i)->render();
+    for(int i = 0; i < LevelData::skeletonAmt[LevelData::currentLevel]; ++i) skeleton.at(i)->render();
 
     renderHUD(engine);
 }
@@ -131,7 +161,7 @@ void Gameplay::renderHUD(Engine *engine) {
 
     // Magic
     hud.bar.render(10, engine->getWindow()->getH() - (hud.bar.getH() + 10)*2);
-    for (int i = 0; i < hud.bar.getW() - 4; ++i) {
+    for (int i = 0; i < (float)(hud.bar.getW() - 4) * ((float)hero->getMagic() / (float)hero->getMMagic()); ++i) {
         hud.magicTick.render(i + 10 + 2, engine->getWindow()->getH() - (hud.bar.getH() + 10 - 1) * 2);
     }
 
@@ -140,6 +170,15 @@ void Gameplay::renderHUD(Engine *engine) {
     for(int i = 0; i < (float)(hud.bar.getW() - 4) * ((float)hero->getHealth()/(float)hero->getMHealth()); ++i) {
         hud.healthTick.render(i + 10 + 2, engine->getWindow()->getH() - (hud.bar.getH() + 10 - 2));
     }
+
+    arial.print(std::to_string((int)hero->getMapX()), 100, 100);
+    arial.print(std::to_string((int)hero->getMapY()), 200, 100);
+    arial.print(std::to_string((int)portal.getMapX()), 100, 200);
+    arial.print(std::to_string((int)portal.getMapY()), 200, 200);
+    arial.print(std::to_string((int)map.x), 100, 300);
+    arial.print(std::to_string((int)map.y), 200, 300);
+    arial.print(std::to_string((int)hero->getX()), 100, 400);
+    arial.print(std::to_string((int)hero->getY()), 200, 400);
 }
 
 void Gameplay::free(Engine *engine) {
@@ -157,4 +196,19 @@ void Gameplay::free(Engine *engine) {
     hud.bar.free();
     hud.healthTick.free();
     hud.magicTick.free();
+}
+
+void Gameplay::nextLevel(Engine *engine) {
+    if(LevelData::currentLevel != LevelData::levelAmt) {
+        LevelData::levelClear = false;
+        ++(LevelData::currentLevel);
+        for(int i = 0; i < LevelData::zombieAmt[LevelData::currentLevel]; ++i) {
+            zombie.at(i)->respawn(0, 0);
+        }
+        for (int i = 0; i < LevelData::skeletonAmt[LevelData::currentLevel]; ++i) {
+            skeleton.at(i)->respawn(0, 0);
+        }
+    } else {
+        engine->getWindow()->close();
+    }
 }

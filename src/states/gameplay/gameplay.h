@@ -17,6 +17,7 @@
 #include "../../actor/hero/hero.h"
 #include "../../actor/enemy/zombie.h"
 #include "../../actor/enemy/skeleton.h"
+#include "../../actor/items/portal.h"
 #include "../../media/font.h"
 #include "../../media/mixer/music.h"
 #include "../../media/texture.h"
@@ -28,8 +29,16 @@ namespace Gameplay {
     extern Hero *hero;
     extern std::vector<Zombie*> zombie;
     extern std::vector<Skeleton*> skeleton;
-    static const int zombieAmt   = 3;
-    static const int skeletonAmt = 3;
+    extern Portal portal;
+
+    namespace LevelData {
+        // char uses less data than int
+        extern       char currentLevel;
+        extern       bool levelClear;
+        static const char levelAmt       = 2; // zero delimited
+        static const char zombieAmt[3]   = {3,5,7};
+        static const char skeletonAmt[3] = {5,7,8};
+    };
 
     extern Font arial;
     extern Music music;
@@ -46,6 +55,8 @@ namespace Gameplay {
     void render(Engine *engine);
     void renderHUD(Engine *engine);
     void free(Engine *engine);
+
+    void nextLevel(Engine *engine);
 };
 
 #endif

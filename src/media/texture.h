@@ -27,7 +27,7 @@ public:
 
     void init(SDL_Renderer*);
     void loadIMG(std::string);
-    void render(int, int);
+    void render(int x, int y, char a = SDL_ALPHA_OPAQUE);
     void free(void);
 
     int getW(void) {return _w;}

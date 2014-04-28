@@ -30,22 +30,20 @@ void Enemy::move(Actor *target, Gameplay::Map *map) {
 }
 
 void Enemy::hitDetect(Hero *target) {
-    if ((target->getX() + target->getW() / 2) > _mapX && (target->getX() + target->getW() / 2) < _mapX + _w) {
-        if ((target->getY() + target->getH() / 2) > _mapY && (target->getY() + target->getH() / 2) < _mapY + _h) {
-            target->hurt(_damage);
-            if (target->ifAttack()) {
-                _hit = true;
-            }
-            else {
-                _hit = false;
-            }
-        }
-        else {
-            _hit = false;
+    _hit = false;
+    if(this->isOn(target)) {
+        target->hurt(_damage);
+        if (target->ifAttack()) {
+            _hit = true;
         }
     }
-    else {
-        _hit = false;
+
+    if(target->isMagicAttack()) {
+        if(_mapX < target->getX() + 250 && _mapX > target->getX() - 250) {
+            if (_mapY < target->getY() + 250 && _mapY > target->getY() - 250) {
+                _health -= 6;
+            }
+        }
     }
 
     bufFunc(_hit, &_hitBuf,
@@ -53,6 +51,13 @@ void Enemy::hitDetect(Hero *target) {
         target, this);
 
     if (_health < 0) die();
+}
+
+void Enemy::respawn(float x, float y) {
+    _dead = false;
+    _health = _mhealth;
+    _x = x;
+    _y = y;
 }
 
 void Enemy::_free(void) {

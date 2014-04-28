@@ -17,6 +17,7 @@ public:
 
     void move(Actor *actor, Gameplay::Map *map);
     void hitDetect(Hero *target);
+    void respawn(float x, float y);
 
 protected:
     bool _hitBuf;

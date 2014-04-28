@@ -32,6 +32,9 @@
     <ClInclude Include="..\src\actor\enemy\skeleton.h" />
     <ClInclude Include="..\src\actor\enemy\zombie\zombie.h" />
     <ClInclude Include="..\src\actor\hero\hero.h" />
+    <ClInclude Include="..\src\actor\items\bag.h" />
+    <ClInclude Include="..\src\actor\items\item.h" />
+    <ClInclude Include="..\src\actor\items\portal.h" />
     <ClInclude Include="..\src\engine\engine.h" />
     <ClInclude Include="..\src\globals.h" />
     <ClInclude Include="..\src\map\map.h" />

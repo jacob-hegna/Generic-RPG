@@ -24,13 +24,19 @@ public:
     }
 
     void render(void);
+    void renderRel(void);
+    void render(float x, float y); // for use in the Item classes
     void die(void);
     void autoMove(Actor *actor, Gameplay::Map *map);
+
+    bool isOn(Actor *target);
 
     void hurt(float amt) {_health -= amt;}
 
     float getX(void)       {return _x;}
     float getY(void)       {return _y;}
+    float getMapX(void)    {return _mapX;}
+    float getMapY(void)    {return _mapY;}
     float getW(void)       {return _w;}
     float getH(void)       {return _h;}
     float getXMid(void)    {return _x+_w/2;}

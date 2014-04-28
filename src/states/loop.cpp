@@ -34,6 +34,7 @@ int loop(Window *window) {
         }
         window->update();
     }
+    foo[0] = 10;
 
     return 0;
 }

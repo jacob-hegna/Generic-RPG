@@ -5,6 +5,8 @@ void Hero::init(Window *window) {
 
     _mhealth = 500.f;
     _health  = _mhealth;
+    _mMagic  = 100.f;
+    _magic   = _mMagic;
     _damage  = 5.f;
 
     _pos   = NFRONT;
@@ -12,6 +14,7 @@ void Hero::init(Window *window) {
     for(int i = 0; i < 8; ++i) {
         _multiTex[i].init(window->getRen());
     }
+    _magicTex.init(window->getRen());
 
     _multiTex[NFRONT].loadIMG("media/images/actors/hero/mainFront.png");
     _multiTex[NBACK].loadIMG("media/images/actors/hero/mainBack.png");
@@ -21,6 +24,8 @@ void Hero::init(Window *window) {
     _multiTex[SBACK].loadIMG("media/images/actors/hero/slashBack.png");
     _multiTex[SLEFT].loadIMG("media/images/actors/hero/slashLeft.png");
     _multiTex[SRIGHT].loadIMG("media/images/actors/hero/slashRight.png");
+
+    _magicTex.loadIMG("media/images/actors/hero/magicAttack.png");
 
     _w = _multiTex[NFRONT].getW();
     _h = _multiTex[NFRONT].getH();
@@ -50,6 +55,22 @@ void Hero::move(Gameplay::Map *map) {
         _pos = ifAttack() ? SRIGHT : NRIGHT;
     }
 
+    // magic healing
+    if(keystate[SDL_GetScancodeFromKey(SDLK_q)]) {
+        if(_magic > 0 && _health <= _mhealth - 4.f) {
+            _magic -= 0.7f;
+            _health += 4.f;
+        }
+    }
+
+    // magic attack
+    if(keystate[SDL_GetScancodeFromKey(SDLK_z)] && _magic >= 5) {
+        _magicAttack = true;
+        _magic -= 5;
+    } else {
+        _magicAttack = false;
+    }
+
     bufFunc(keystate[SDL_GetScancodeFromKey(SDLK_SPACE)], &_playBuf,
             [] (Sound *sound, void *p) {sound->play();},
             &_slashSound, nullptr);
@@ -70,8 +91,19 @@ void Hero::move(Gameplay::Map *map) {
         }
     }
 
-    _mapX = _x;
-    _mapY = _y;
+    _mapX = _x + map->x;
+    _mapY = _y + map->y;
+
+    // regen magic
+    if(_magic <= _mMagic - .25) {
+        _magic += .25f;
+    }
+}
+
+void Hero::renderMagic(void) {
+    if(_magicAttack) {
+        _magicTex.render(_x - _magicTex.getW() / 2 + _w/2, _y - _magicTex.getH() / 2 + _h/2);
+    }
 }
 
 void Hero::_free(void) {

@@ -25,10 +25,11 @@ void Texture::loadIMG(std::string path) {
     }
 }
 
-void Texture::render(int x, int y) {
+void Texture::render(int x, int y, char a) {
     SDL_Rect temp;
     temp.x = x;
     temp.y = y;
+    SDL_SetTextureAlphaMod(_tex, a);
     SDL_QueryTexture(_tex, NULL, NULL, &temp.w, &temp.h);
     SDL_RenderCopy(_ren, _tex, NULL, &temp);
 }
