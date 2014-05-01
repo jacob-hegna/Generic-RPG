@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jacob-hegna/Generic-RPG.svg?branch=master)](https://travis-ci.org/jacob-hegna/Generic-RPG)
+
 Generic-RPG
 ===========
 

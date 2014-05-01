@@ -3,7 +3,6 @@ INCLUDEDIR  = include/
 SOURCEDIR   = src/
 
 DIRS        = $(wildcard $(SOURCEDIR)*/)
-VPATH       = $(SOURCEDIR):$(DIRS):$(foreach dir, $(DIRS), $(wildcard $(dir)*/))
 
 IFILES     := $(shell find $(SOURCEDIR) -name '*.cpp')
 OFILES     := $(subst $(SOURCEDIR), $(BUILDDIR), $(addsuffix .o, $(notdir $(shell find $(SOURCEDIR) -name '*.cpp'))))
