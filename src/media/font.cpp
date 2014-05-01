@@ -4,17 +4,16 @@ void Font::loadTTF(std::string path, int size) {
     _font = TTF_OpenFont(path.c_str(), size);
 }
 
-void Font::setColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a) {
+void Font::setColor(Uint8 r, Uint8 g, Uint8 b) {
     _color.r = r;
     _color.g = g;
     _color.b = b;
-    _color.a = a;
-    
+
 }
 
 void Font::print(std::string data, int x, int y) {
     if(_tex != nullptr) SDL_DestroyTexture(_tex);
-    
+
     SDL_Surface* textSurface = TTF_RenderText_Solid( _font, data.c_str(), _color );
     if( textSurface == nullptr )
     {

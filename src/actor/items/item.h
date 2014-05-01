@@ -9,7 +9,7 @@
 class Item : public Actor {
 public:
     Item(void) {
-    
+
     }
     Item(float x, float y) : Actor(x, y) {
         Item();

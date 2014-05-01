@@ -1,7 +1,7 @@
 #ifndef _ACTOR_H_
 #define _ACTOR_H_
 
-#include <SDL_image.h>
+#include <SDL2/SDL_image.h>
 
 #include "../window/window.h"
 #include "../media/texture.h"
@@ -16,7 +16,7 @@ public:
         _init(x, y);
     }
     ~Actor(void) {
-        
+
     }
 
     void setWin(Window *window) {

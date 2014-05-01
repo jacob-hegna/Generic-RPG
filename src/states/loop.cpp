@@ -13,7 +13,7 @@ int loop(Window *window) {
     engine[GAMEPLAY]->init(window, Gameplay::init, Gameplay::logic, Gameplay::render, Gameplay::free, "Gameloop");
     engine[PAUSEMENU]->init(window, PauseMenu::init, PauseMenu::logic, PauseMenu::render, PauseMenu::free, "Pause Menu");
 
-    while(!window->shouldClose() && !loopQuit) {   
+    while(!window->shouldClose() && !loopQuit) {
         const Uint8* keystate = SDL_GetKeyboardState(NULL);
 
         engine[gamestates]->exec();
@@ -34,7 +34,6 @@ int loop(Window *window) {
         }
         window->update();
     }
-    foo[0] = 10;
-
+    
     return 0;
 }

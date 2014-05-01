@@ -12,7 +12,7 @@ namespace Gameplay {
         Texture tex;
         Uint8 r, g, b;
     };
-    
+
     struct Map {
         Map(void) {}
         std::vector<Tile> tiles;

@@ -13,5 +13,5 @@ void PauseMenu::render(Engine *engine) {
 }
 
 void PauseMenu::free(Engine *engine) {
-    
+
 }

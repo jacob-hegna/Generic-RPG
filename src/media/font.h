@@ -3,8 +3,8 @@
 
 #include <string>
 
-#include <SDL.h>
-#include <SDL_ttf.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 
 #include "../window/window.h"
 
@@ -22,7 +22,7 @@ public:
 
     void loadTTF(std::string, int);
     void setRen(Window *window) {_ren = window->getRen();}
-    void setColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a = 255);
+    void setColor(Uint8 r, Uint8 g, Uint8 b);
     void print(std::string, int x, int y);
     void free(void);
 
