@@ -2,7 +2,6 @@
 #define _ENEMY_H_
 
 #include "../hero/hero.h"
-#include "../../map/map.h"
 
 class Enemy : public Actor {
 public:

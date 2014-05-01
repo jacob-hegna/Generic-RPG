@@ -16,7 +16,6 @@
     <ClCompile Include="..\src\actor\hero\hero.cpp" />
     <ClCompile Include="..\src\engine\engine.cpp" />
     <ClCompile Include="..\src\main.cpp" />
-    <ClCompile Include="..\src\map\map.cpp" />
     <ClCompile Include="..\src\media\font.cpp" />
     <ClCompile Include="..\src\media\texture.cpp" />
     <ClCompile Include="..\src\states\gameplay\gameplay.cpp" />
