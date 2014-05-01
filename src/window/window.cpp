@@ -23,7 +23,7 @@ int Window::init(void)
     _y = 100;
     _w = 800;
     _h = 600;
-    _title = "Divide and Conquer";
+    _title = "Generic-RPG";
     _aa = 16;
     _fc = false;
     _time    = 0;
