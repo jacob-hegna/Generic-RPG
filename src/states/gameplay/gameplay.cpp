@@ -70,7 +70,7 @@ void Gameplay::init(Engine *engine) {
         tileAttr = tileAttr->next_attribute("path");
         tile.tex = Texture(engine->getWindow()->getRen());
         tile.path = tileAttr->value();
-        
+
         map.tiles.push_back(tile);
     }
 
@@ -170,15 +170,6 @@ void Gameplay::renderHUD(Engine *engine) {
     for(int i = 0; i < (float)(hud.bar.getW() - 4) * ((float)hero->getHealth()/(float)hero->getMHealth()); ++i) {
         hud.healthTick.render(i + 10 + 2, engine->getWindow()->getH() - (hud.bar.getH() + 10 - 2));
     }
-
-    arial.print(std::to_string((int)hero->getMapX()), 100, 100);
-    arial.print(std::to_string((int)hero->getMapY()), 200, 100);
-    arial.print(std::to_string((int)portal.getMapX()), 100, 200);
-    arial.print(std::to_string((int)portal.getMapY()), 200, 200);
-    arial.print(std::to_string((int)map.x), 100, 300);
-    arial.print(std::to_string((int)map.y), 200, 300);
-    arial.print(std::to_string((int)hero->getX()), 100, 400);
-    arial.print(std::to_string((int)hero->getY()), 200, 400);
 }
 
 void Gameplay::free(Engine *engine) {
