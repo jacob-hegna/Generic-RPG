@@ -5,3 +5,5 @@ build-win32/*
 *.ilk
 *.pdb
 *.dll
+*.o
+Generic-RPG
