@@ -19,11 +19,11 @@ TARGET = Generic-RPG
 
 all: $(TARGET)
 
-$(TARGET): $(OFILES)
-	$(CC) $(foreach file, $^, $(BUILDDIR)$(file)) $(LINKFLAGS) -o $@ $(DYNLINK)
+$(TARGET): $(foreach file, $(OFILES), $(BUILDDIR)$(file))
+	$(CC) $^ $(LINKFLAGS) -o $@ $(DYNLINK)
 
-%.cpp.o: %.cpp
-	$(CC) $(foreach def, $(DEFINES), -D $(def)) $(CCFLAGS) $< -o $(BUILDDIR)$@
+$(BUILDDIR)%.cpp.o: %.cpp
+	$(CC) $(foreach def, $(DEFINES), -D $(def)) $(CCFLAGS) $< -o $@
 
 .PHONY: clean
 clean:

@@ -131,6 +131,10 @@ void Gameplay::logic(Engine *engine) {
         LevelData::levelClear = false;
     }
 
+    if(LevelData::levelClear) {
+        loopQuit = true;
+    }
+
     if(hero->getHealth() <= 0) {
         loopQuit = true;
     }
