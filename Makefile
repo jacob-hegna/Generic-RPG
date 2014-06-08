@@ -2,7 +2,7 @@ BUILDDIR    = bin/
 INCLUDEDIR  = include/
 SOURCEDIR   = src/
 
-DEFINES     = STATIC_MEDIA
+DEFINES     = 
 
 SDIRS       = $(wildcard $(SOURCEDIR)*/)
 VPATH       = $(SOURCEDIR):$(SDIRS):$(foreach dir, $(SDIRS), $(wildcard $(dir)*/))
@@ -14,9 +14,6 @@ OFILES     := $(subst $(SOURCEDIR),  $(BUILDDIR), $(addsuffix .o, $(notdir $(she
 CC          = g++
 CCFLAGS     = -c -w -O3 -std=c++0x -I$(INCLUDEDIR)
 LINKFLAGS   = -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lpng
-
-OBJC        = objcopy
-OBJCFLAGS   = --input-target binary --output-target elf32-i386 --binary-architecture i386
 
 TARGET = Generic-RPG
 
